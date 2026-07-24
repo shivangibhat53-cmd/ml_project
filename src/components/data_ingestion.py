@@ -25,7 +25,7 @@ class DataIngestion:
             df = pd.read_csv(r'notebook\data\stud.csv')
             logging.info("Reading data from the datasource")
 
-            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok = True)
+            os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok = True)
             df.to_csv(self.ingestion_config.raw_data_path,index = False, header = True)
 
             logging.info("Train Test split")
@@ -48,9 +48,9 @@ if __name__ == '__main__':
     train_data, test_data = ingestion_obj.intiate_data_ingestion()
 
     data_tranformation = DataTransformation()
-    train_arr, test_arr,_= data_tranformation.intiate_data_transformation(train_data,test_data) 
+    train_arr, test_arr,_= data_tranformation.initiate_data_transformation(train_data,test_data) 
 
     modeltrainer = ModelTrainer()
     print(modeltrainer.intiate_model_trainer(train_arr,test_arr))
-'''
 
+'''
