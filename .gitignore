@@ -158,7 +158,7 @@ env.bak/
 venv.bak/
 artificats/
 .artificats/
-
+.vscode/
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -219,5 +219,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-.vscode
+
 
