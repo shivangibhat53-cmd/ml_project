@@ -9,14 +9,10 @@ phases:
       - echo "Creating a local isolated virtual environment..."
       - python -m venv eb_venv
       - source eb_venv/bin/activate
-      
       - echo "Upgrading pip and installing requirements inside CodeBuild..."
       - pip install --upgrade pip
-      # We use --only-binary to ensure it pulls pre-compiled Linux wheels
       - pip install --only-binary=:all: --no-cache-dir -r requirements.txt
-      
       - deactivate
-      
       - echo "Hiding requirements.txt from Elastic Beanstalk automated hooks..."
       - rm requirements.txt
 
