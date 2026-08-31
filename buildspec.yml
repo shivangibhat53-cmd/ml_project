@@ -6,14 +6,12 @@ phases:
       python: 3.11
   build:
     commands:
-      - echo "Creating a local isolated virtual environment..."
+      - echo "Setting up environment..."
       - python -m venv eb_venv
-      - source eb_venv/bin/activate
-      - echo "Upgrading pip and installing requirements inside CodeBuild..."
+      - . eb_venv/bin/activate
       - pip install --upgrade pip
       - pip install --only-binary=:all: --no-cache-dir -r requirements.txt
       - deactivate
-      - echo "Hiding requirements.txt from Elastic Beanstalk automated hooks..."
       - rm requirements.txt
 
 artifacts:
