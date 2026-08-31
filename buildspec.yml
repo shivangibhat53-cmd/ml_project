@@ -9,9 +9,11 @@ phases:
       - pip install --upgrade pip
   build:
     commands:
-      - echo "Downloading pre-compiled wheels for Elastic Beanstalk..."
-      # This downloads everything as a ready-to-install binary file (.whl)
-      - pip wheel -r prod_requirements.txt --wheel-dir=wheelhouse
+      - echo "Testing package installation compatibility..."
+      - pip install -r requirements.txt
 artifacts:
   files:
     - '**/*'
+  exclude-paths:
+    - 'wheelhouse/**/*'
+    - '.git/**/*'
