@@ -5,18 +5,13 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - echo "Installing requirements to verify dependencies..."
+      - echo "Upgrading pip..."
       - pip install --upgrade pip
-      - pip install -r requirements.txt
   build:
     commands:
-      - echo "Build phase started on `date`..."
-      # If you have unit tests, uncomment the line below:
-      # - pytest
-  post_build:
-    commands:
-      - echo "Assembling deployment package..."
-
+      - echo "Downloading pre-compiled wheels for Elastic Beanstalk..."
+      # This downloads everything as a ready-to-install binary file (.whl)
+      - pip wheel -r prod_requirements.txt --wheel-dir=wheelhouse
 artifacts:
   files:
     - '**/*'
