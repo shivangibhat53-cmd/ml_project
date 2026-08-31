@@ -1,0 +1,1 @@
+web: /var/app/current/eb_venv/bin/gunicorn application:application

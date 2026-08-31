@@ -19,5 +19,5 @@ version = '0.0.1',
 author = 'Shivangi',
 author_email= 'shivangibhat53@gmail.com',
 packages = find_packages(),
-install_requires=get_requirements('prod_requirements.txt')
+install_requires=get_requirements('requirements.txt')
 )
