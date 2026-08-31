@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing requirements to verify dependencies..."
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Build phase started on `date`..."
+      # If you have unit tests, uncomment the line below:
+      # - pytest
+  post_build:
+    commands:
+      - echo "Assembling deployment package..."
+
+artifacts:
+  files:
+    - '**/*'
