@@ -8,10 +8,8 @@ phases:
     commands:
       - echo "Setting up environment..."
       - python -m venv eb_venv
-      - . eb_venv/bin/activate
-      - pip install --upgrade pip
-      - 'pip install --only-binary=:all: --no-cache-dir -r requirements.txt'
-      - deactivate
+      - eb_venv/bin/pip install --upgrade pip
+      - 'eb_venv/bin/pip install --only-binary=:all: --no-cache-dir -r requirements.txt'
       - rm requirements.txt
 
 artifacts:
