@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  build:
+    commands:
+      - echo "Preparing application package for Elastic Beanstalk..."
+      - # Do NOT build or package eb_venv here.
+      - # Leave requirements.txt intact so Elastic Beanstalk can read it.
+
+artifacts:
+  files:
+    - '**/*'
+  exclude-paths:
+    - '.git/**/*'
